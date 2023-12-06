@@ -1,4 +1,11 @@
 import {
+    ChevronsLeft,
+    MenuIcon,
+    Plus,
+    PlusCircle,
+    Search,
+    Settings,
+    Trash,
     Laptop,
     Moon,
     SunMedium,
@@ -13,14 +20,17 @@ import {
   export type Icon = LucideIcon
   export const Icons = {
     logo: (props : any) => <Image src="/favicon.png" alt="Logo" width="40" height="40" {...props} />,
+    chevronLeft: ChevronsLeft,
+    menu: MenuIcon,
+    plus: Plus,
+    plusCircle: PlusCircle,
+    search: Search,
+    settings: Settings,
+    trash: Trash,
     close: X,
-  
     page: File,
     media: Image,
-   
-    
     user: User,
-   
     sun: SunMedium,
     moon: Moon,
     laptop: Laptop,
