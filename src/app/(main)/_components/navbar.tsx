@@ -2,15 +2,15 @@
 
 import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
-import { MenuIcon } from "lucide-react";
 
-// import { api } from "@/convex/_generated/api";
-// import { Id } from "@/convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
 
 import { Title } from "./title";
 import { Banner } from "./banner";
 import { Menu } from "./menu";
 import { Publish } from "./publish";
+import { Icons } from "@/components/icons";
 
 interface NavbarProps {
   isCollapsed: boolean;
@@ -23,9 +23,9 @@ export const Navbar = ({
 }: NavbarProps) => {
   const params = useParams();
 
-//   const document = useQuery(api.documents.getById, {
-//     documentId: params.documentId as Id<"documents">,
-//   });
+  const document = useQuery(api.documents.getById, {
+    documentId: params.documentId as Id<"documents">,
+  });
 
   if (document === undefined) {
     return (
@@ -46,7 +46,7 @@ export const Navbar = ({
     <>
       <nav className="bg-background dark:bg-[#1F1F1F] px-3 py-2 w-full flex items-center gap-x-4">
         {isCollapsed && (
-          <MenuIcon
+          <Icons.menu
             role="button"
             onClick={onResetWidth}
             className="h-6 w-6 text-muted-foreground"
@@ -60,9 +60,9 @@ export const Navbar = ({
           </div>
         </div>
       </nav>
-      {/* {document.isArchived && (
+      {document.isArchived && (
         <Banner documentId={document._id} />
-      )} */}
+      )}
     </>
   )
 }

@@ -1,12 +1,12 @@
 "use client";
 
 import { useConvexAuth } from "convex/react";
-import { ArrowRight } from "lucide-react";
 import { SignInButton } from "@clerk/clerk-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
+import { Icons } from "@/components/icons";
 
 export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -29,7 +29,7 @@ export const Heading = () => {
         <Button asChild>
           <Link href="/documents">
             Enter wiki
-            <ArrowRight className="h-4 w-4 ml-2" />
+            <Icons.arrowRight className="h-4 w-4 ml-2" />
           </Link>
         </Button>
       )}
@@ -37,7 +37,7 @@ export const Heading = () => {
         <SignInButton mode="modal">
           <Button>
             Try
-            <ArrowRight className="h-4 w-4 ml-2" />
+            <Icons.arrowRight className="h-4 w-4 ml-2" />
           </Button>
         </SignInButton>
       )}

@@ -1,6 +1,5 @@
 "use client";
 
-import { ChevronsLeftRight } from "lucide-react";
 import { useUser, SignOutButton } from "@clerk/clerk-react";
 
 import {
@@ -14,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Icons } from "@/components/icons";
 
 export const UserItem = () => {
   const { user } = useUser();
@@ -30,7 +30,7 @@ export const UserItem = () => {
               {user?.fullName}&apos;s wiki
             </span>
           </div>
-          <ChevronsLeftRight className=" rotate-90 ml-2 text-muted-foreground h-4 w-4" />
+          <Icons.chevronsLeftRight className=" rotate-90 ml-2 text-muted-foreground h-4 w-4" />
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent

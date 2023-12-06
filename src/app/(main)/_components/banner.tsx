@@ -2,16 +2,16 @@
 
 import { useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
-// import { toast } from "sonner";
+import { toast } from "sonner";
 
-// import { Id } from "@/convex/_generated/dataModel";
-// import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
 import { Button } from "@/components/ui/button";
 import { ConfirmModal } from "@/components/modals/confirm-modal";
 
 interface BannerProps {
-//   documentId: Id<"documents">;
-    documentId: any;
+  documentId: Id<"documents">;
+
 };
 
 export const Banner = ({
@@ -19,29 +19,29 @@ export const Banner = ({
 }: BannerProps) => {
   const router = useRouter();
 
-//   const remove = useMutation(api.documents.remove);
-//   const restore = useMutation(api.documents.restore);
+  const remove = useMutation(api.documents.remove);
+  const restore = useMutation(api.documents.restore);
 
   const onRemove = () => {
-    // const promise = remove({ id: documentId });
+    const promise = remove({ id: documentId });
 
-    // toast.promise(promise, {
-    //   loading: "Deleting note...",
-    //   success: "Note deleted!",
-    //   error: "Failed to delete note."
-    // });
+    toast.promise(promise, {
+      loading: "Deleting note...",
+      success: "Note deleted!",
+      error: "Failed to delete note."
+    });
 
     router.push("/documents");
   };
 
   const onRestore = () => {
-    // const promise = restore({ id: documentId });
+    const promise = restore({ id: documentId });
 
-    // toast.promise(promise, {
-    //   loading: "Restoring note...",
-    //   success: "Note restored!",
-    //   error: "Failed to restore note."
-    // });
+    toast.promise(promise, {
+      loading: "Restoring note...",
+      success: "Note restored!",
+      error: "Failed to restore note."
+    });
   };
 
   return (
