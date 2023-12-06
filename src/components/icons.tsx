@@ -26,6 +26,8 @@ import {
     Circle,
     LucideIcon,
     LucideProps,
+    LayoutDashboard,
+    Files,
     // type Icon as LucideIcon,
   } from "lucide-react"
   import Image from "next/image"
@@ -58,6 +60,8 @@ import {
     sun: SunMedium,
     moon: Moon,
     laptop: Laptop,
+    layoutDashboard: LayoutDashboard,
+    files: Files,
     
     gitHub: ({ ...props }: LucideProps) => (
       <svg
