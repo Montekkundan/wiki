@@ -2,29 +2,28 @@
 
 import { useState } from "react";
 import { useMutation } from "convex/react";
-// import { toast } from "sonner";
+import { toast } from "sonner";
 
-// import { Doc } from "@/convex/_generated/dataModel";
+import { Doc } from "@/convex/_generated/dataModel";
 import {
   PopoverTrigger,
   Popover,
   PopoverContent
 } from "@/components/ui/popover"
-// import { useOrigin } from "@/hooks/use-origin";
-// import { api } from "@/convex/_generated/api";
+import { useOrigin } from "@/hooks/use-origin";
+import { api } from "@/convex/_generated/api";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 
 interface PublishProps {
-//   initialData: Doc<"documents">
-    initialData: any
+  initialData: Doc<"documents">
 };
 
 export const Publish = ({
   initialData
 }: PublishProps) => {
-//   const origin = useOrigin();
-//   const update = useMutation(api.documents.update);
+  const origin = useOrigin();
+  const update = useMutation(api.documents.update);
 
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,33 +33,33 @@ export const Publish = ({
   const onPublish = () => {
     setIsSubmitting(true);
 
-    // const promise = update({
-    //   id: initialData._id,
-    //   isPublished: true,
-    // })
-    //   .finally(() => setIsSubmitting(false));
+    const promise = update({
+      id: initialData._id,
+      isPublished: true,
+    })
+      .finally(() => setIsSubmitting(false));
 
-    // toast.promise(promise, {
-    //   loading: "Publishing...",
-    //   success: "Note published",
-    //   error: "Failed to publish note.",
-    // });
+    toast.promise(promise, {
+      loading: "Publishing...",
+      success: "Note published",
+      error: "Failed to publish note.",
+    });
   };
 
   const onUnpublish = () => {
     setIsSubmitting(true);
 
-    // const promise = update({
-    //   id: initialData._id,
-    //   isPublished: false,
-    // })
-    //   .finally(() => setIsSubmitting(false));
+    const promise = update({
+      id: initialData._id,
+      isPublished: false,
+    })
+      .finally(() => setIsSubmitting(false));
 
-    // toast.promise(promise, {
-    //   loading: "Unpublishing...",
-    //   success: "Note unpublished",
-    //   error: "Failed to unpublish note.",
-    // });
+    toast.promise(promise, {
+      loading: "Unpublishing...",
+      success: "Note unpublished",
+      error: "Failed to unpublish note.",
+    });
   };
 
   const onCopy = () => {
