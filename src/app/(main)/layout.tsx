@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import { Spinner } from "@/components/spinner";
 import { Navigation } from "./_components/navigation";
+import { SearchCommand } from "@/components/search-command";
 
 
 const MainLayout = ({
@@ -30,7 +31,7 @@ const MainLayout = ({
     <div className="h-screen flex">
       <Navigation />
       <main className="flex-1 h-full overflow-y-auto">
- 
+      <SearchCommand />
         {children}
       </main>
     </div>

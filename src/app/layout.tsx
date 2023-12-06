@@ -33,7 +33,7 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-            storageKey="jotion-theme-2"
+            storageKey="wiki-theme-2"
           >
             <Toaster />
             {children}
