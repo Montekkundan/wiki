@@ -33,14 +33,18 @@ export const Heading = () => {
           </Link>
         </Button>
       )}
-      {!isAuthenticated && !isLoading && (
+      {/* {!isAuthenticated && !isLoading && (
         <SignInButton mode="modal">
           <Button>
             Try
             <Icons.arrowRight className="h-4 w-4 ml-2" />
           </Button>
         </SignInButton>
-      )}
+      )} */}
+      <Button asChild>
+            <Link href="/dashboard">Try <Icons.arrowRight className="h-4 w-4 ml-2" /></Link>
+            
+          </Button>
     </div>
   )
 }
