@@ -11,6 +11,7 @@ import {
 import "@blocknote/core/style.css";
 
 import { useEdgeStore } from "@/lib/edgestore";
+import dynamic from "next/dynamic";
 
 interface EditorProps {
   onChange: (value: string) => void;
@@ -18,7 +19,7 @@ interface EditorProps {
   editable?: boolean;
 };
 
-const Editor = ({
+export const Editor = ({
   onChange,
   initialContent,
   editable
@@ -56,4 +57,7 @@ const Editor = ({
   )
 }
 
-export default Editor;
+export default dynamic(() => Promise.resolve(Editor), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});

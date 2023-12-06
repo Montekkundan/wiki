@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { File } from "lucide-react";
 import { useQuery } from "convex/react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
@@ -16,6 +15,7 @@ import {
 } from "@/components/ui/command";
 import { useSearch } from "@/hooks/use-search";
 import { api } from "@/convex/_generated/api";
+import { Icons } from "./icons";
 
 export const SearchCommand = () => {
   const { user } = useUser();
@@ -72,7 +72,7 @@ export const SearchCommand = () => {
                   {document.icon}
                 </p>
               ) : (
-                <File className="mr-2 h-4 w-4" />
+                <Icons.file className="mr-2 h-4 w-4" />
               )}
               <span>
                 {document.title}
