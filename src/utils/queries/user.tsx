@@ -41,17 +41,17 @@ export async function createUser(
       const blob = base64ToBlob(base64Image, "image/jpeg");
 
       // Upload the blob to Vercel Blob Storage
-      const uploadedBlob = await put(
-        `${email}-profile-picture.jpeg`, // Ensure the file extension is .jpeg
-        blob,
-        {
-          access: "public",
-          contentType: "image/jpeg", // Set the correct MIME type
-        },
-      );
+      // const uploadedBlob = await put(
+      //   `${email}-profile-picture.jpeg`, // Ensure the file extension is .jpeg
+      //   blob,
+      //   {
+      //     access: "public",
+      //     contentType: "image/jpeg", // Set the correct MIME type
+      //   },
+      // );
 
       // Use the URL from the uploaded blob
-      pictureUrl = uploadedBlob.url;
+      // pictureUrl = uploadedBlob.url;
     }
   } catch (error) {
     console.error("Error fetching profile picture:", error);
