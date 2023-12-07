@@ -73,7 +73,7 @@ export const UserItem = ({ user }: UserAccountNavProps) => {
             callbackUrl: `${window.location.origin}/sign-in`,
           })
         }}>
-          <Button>
+          <Button variant="ghost">
             Log out
           </Button>
         </DropdownMenuItem>

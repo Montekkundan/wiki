@@ -78,7 +78,7 @@ export const Publish = ({
           Publish 
           {initialData.isPublished && (
             <Icons.globe
-              className="text-sky-500 w-4 h-4 ml-2"
+              className="text-sky-500 w-4 h-4 ml-2 "
             />
           )}
         </Button>
