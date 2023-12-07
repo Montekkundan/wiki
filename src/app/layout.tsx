@@ -6,6 +6,7 @@ import { ConvexClientProvider } from '@/components/providers/convex-provider'
 import { Toaster } from "sonner";
 import { ModalProvider } from '@/components/providers/modals-provider'
 import { EdgeStoreProvider } from '@/lib/edgestore'
+import Providers from '@/components/providers/session'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -23,13 +24,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  authModal,
 }: {
   children: React.ReactNode
+  authModal: React.ReactNode
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
     <body className={inter.className}>
-    <ConvexClientProvider>
+    <Providers>
+      <ConvexClientProvider>
       <EdgeStoreProvider>
           <ThemeProvider
             attribute="class"
@@ -40,10 +44,12 @@ export default function RootLayout({
           >
             <Toaster position="bottom-center" />
             <ModalProvider />
+            {authModal}
             {children}
           </ThemeProvider>
           </EdgeStoreProvider>
           </ConvexClientProvider>
+          </Providers>
     </body>
   </html>
   )

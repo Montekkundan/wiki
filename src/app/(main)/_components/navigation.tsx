@@ -21,8 +21,12 @@ import { DocumentList } from "./document-list";
 import { TrashBox } from "./trash-box";
 import { Navbar } from "./navbar";
 import { Icons } from "@/components/icons";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
 
-export const Navigation = () => {
+export const Navigation =  () => {
+  const { data: session } = useSession(); 
   const router = useRouter();
   const settings = useSettings();
   const search = useSearch();
@@ -146,13 +150,19 @@ export const Navigation = () => {
           <Icons.chevronLeft className="h-6 w-6" />
         </div>
         <div>
-           <UserItem />
-          <Item
-            label="Search"
-            icon={Icons.search}
-            isSearch
-            onClick={search.onOpen}
-          />
+        {session?.user ? (
+    <UserItem user={session.user} />
+  ) : (
+    <p className="pl-4 pt-4">No user</p> 
+  )}
+          <div className="pt-4"> 
+            <Item
+              label="Search"
+              icon={Icons.search}
+              isSearch
+              onClick={search.onOpen}
+            />
+          </div>
           <Item
             label="Settings"
             icon={Icons.settings}

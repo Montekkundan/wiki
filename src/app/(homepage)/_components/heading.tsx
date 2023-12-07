@@ -9,7 +9,7 @@ import { Spinner } from "@/components/spinner";
 import { Icons } from "@/components/icons";
 
 export const Heading = () => {
-  const { isAuthenticated, isLoading } = useConvexAuth();
+  // const { isAuthenticated, isLoading } = useConvexAuth();
 
   return (
     <div className="max-w-3xl space-y-4">
@@ -20,19 +20,19 @@ export const Heading = () => {
       test <br />
         test
       </h3>
-      {isLoading && (
+      {/* {isLoading && (
         <div className="w-full flex items-center justify-center">
           <Spinner size="lg" />
         </div>
-      )}
-      {isAuthenticated && !isLoading && (
+      )} */}
+      {/* {isAuthenticated && !isLoading && (
         <Button asChild>
           <Link href="/documents">
             Enter wiki
             <Icons.arrowRight className="h-4 w-4 ml-2" />
           </Link>
         </Button>
-      )}
+      )} */}
       {/* {!isAuthenticated && !isLoading && (
         <SignInButton mode="modal">
           <Button>
@@ -41,7 +41,7 @@ export const Heading = () => {
           </Button>
         </SignInButton>
       )} */}
-      <Button asChild>
+      <Button >
             <Link href="/dashboard">Try <Icons.arrowRight className="h-4 w-4 ml-2" /></Link>
             
           </Button>
