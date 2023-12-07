@@ -42,7 +42,7 @@ import {
     settings: Settings,
     trash: Trash,
     close: X,
-    page: File,
+    // page: File,
     arrowRight: ArrowRight,
     chevronsLeftRight: ChevronsLeftRight,
     undo: Undo,
